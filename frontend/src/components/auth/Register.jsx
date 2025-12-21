@@ -162,7 +162,7 @@ const Register = ({ api }) => {
   };
 
   return (
-    <div className="register-container" ref={containerRef}>
+    <div className="login-container" ref={containerRef}>
       {/* Animated Background Elements */}
       <div className="bg-grid"></div>
       <div className="bg-floating shape-1"></div>
@@ -170,79 +170,41 @@ const Register = ({ api }) => {
       <div className="bg-floating shape-3"></div>
       <div className="bg-floating shape-4"></div>
       
-      {/* Left Panel - Branding & Info */}
-      <div className="register-left-panel" ref={leftPanelRef}>
-        <div className="brand-section">
-          <div className="brand-logo">
-            <div className="logo-shield">🛡️</div>
-            <div className="brand-name">
-              <span className="brand-primary">Threat</span>
-              <span className="brand-secondary">Intelligence</span>
+      {/* Left Panel - Video Display */}
+      <div className="login-left-panel" ref={leftPanelRef}>
+        <div className="security-header">
+          <div className="security-brand">
+            <div className="shield-logo">🛡️</div>
+            <div className="security-title">
+              <span className="title-main">Threat Intelligence</span>
+              <span className="title-sub">Security Portal</span>
             </div>
           </div>
           
-          <div className="welcome-section">
-            <div className="welcome-badge">
-              <span className="badge-icon">✨</span>
-              <span className="badge-text">Secure Onboarding</span>
-            </div>
-            <h1 className="welcome-title">
-              Join Our Global Security Network
-            </h1>
-            <p className="welcome-description">
-              Create your account to access real-time threat intelligence, 
-              advanced analytics, and collaborative security tools used by 
-              leading organizations worldwide.
-            </p>
+          <div className="security-status">
+            <div className="status-indicator active"></div>
+            <span className="status-text">Security Systems Online</span>
           </div>
         </div>
 
-        <div className="features-section">
-          <div className="features-header">
-            <h3 className="features-title">Enterprise-Grade Security</h3>
-            <div className="security-indicator">
-              <div className="indicator-dot active"></div>
-              <div className="indicator-dot active"></div>
-              <div className="indicator-dot active"></div>
-              <div className="indicator-dot"></div>
-            </div>
-          </div>
+        {/* Video Container */}
+        <div className="video-container">
+          <video
+            className="security-video"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/design/login.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           
-          <div className="features-grid">
-            <div className="feature-card">
-              <div className="feature-icon">🔐</div>
-              <div className="feature-content">
-                <h4>End-to-End Encryption</h4>
-                <p>Military-grade AES-256 encryption for all data</p>
-              </div>
-            </div>
-            
-            <div className="feature-card">
-              <div className="feature-icon">📊</div>
-              <div className="feature-content">
-                <h4>Real-Time Analytics</h4>
-                <p>Live threat detection and predictive analysis</p>
-              </div>
-            </div>
-            
-            <div className="feature-card">
-              <div className="feature-icon">🌐</div>
-              <div className="feature-content">
-                <h4>Global Intelligence</h4>
-                <p>Access to 150M+ threat indicators worldwide</p>
-              </div>
-            </div>
-            
-            <div className="feature-card">
-              <div className="feature-icon">⚡</div>
-              <div className="feature-content">
-                <h4>Instant Deployment</h4>
-                <p>Get started in minutes with zero configuration</p>
-              </div>
-            </div>
-          </div>
+          {/* Video Overlay Gradient */}
+          <div className="video-overlay-gradient"></div>
         </div>
 
+        {/* Register-specific stats */}
         <div className="stats-section">
           <div className="stat-item">
             <div className="stat-value">15,000+</div>
@@ -262,17 +224,24 @@ const Register = ({ api }) => {
       </div>
       
       {/* Right Panel - Registration Form */}
-      <div className="register-right-panel">
-        <div className="form-container-wrapper">
-          <div className="form-header-glass">
-            <div className="form-header-content">
-              <h2 className="form-main-title">Create Your Account</h2>
-              <p className="form-subtitle">Begin your security journey in seconds</p>
+      <div className="login-right-panel">
+        <div className="access-container">
+          <div className="access-header">
+            <div className="access-header-content">
+              <h2 className="access-title">Create Your Account</h2>
+              <p className="access-subtitle">Begin your security journey in seconds</p>
             </div>
           </div>
           
-          <div className="form-glass-container" ref={formRef}>
-            <form className="register-form" onSubmit={handleSubmit}>
+          <div className="access-container" ref={formRef}>
+            <div className="access-notice">
+              <div className="notice-icon">✨</div>
+              <div className="notice-text">
+                Create your account to access real-time threat intelligence, advanced analytics, and collaborative security tools.
+              </div>
+            </div>
+            
+            <form className="login-form" onSubmit={handleSubmit}>
               {error && (
                 <div className="error-message-glass">
                   <span className="error-icon">⚠️</span>
@@ -291,7 +260,7 @@ const Register = ({ api }) => {
                     name="username"
                     type="text"
                     required
-                    className="register-input-glass"
+                    className="login-input-glass"
                     placeholder="Enter your username"
                     value={formData.username}
                     onChange={handleChange}
@@ -312,7 +281,7 @@ const Register = ({ api }) => {
                     name="email"
                     type="email"
                     required
-                    className="register-input-glass"
+                    className="login-input-glass"
                     placeholder="your.email@company.com"
                     value={formData.email}
                     onChange={handleChange}
@@ -333,7 +302,7 @@ const Register = ({ api }) => {
                     name="password"
                     type="password"
                     required
-                    className="register-input-glass"
+                    className="login-input-glass"
                     placeholder="Create a strong password"
                     value={formData.password}
                     onChange={handleChange}
@@ -358,31 +327,31 @@ const Register = ({ api }) => {
                           {getPasswordStrengthLabel()}
                         </span>
                       </div>
+                      
+                      <div className="requirements-grid">
+                        <div className={`requirement-item ${requirements.length ? 'met' : ''}`}>
+                          <span className="req-icon">{requirements.length ? '✓' : '○'}</span>
+                          <span className="req-text">8+ characters</span>
+                        </div>
+                        <div className={`requirement-item ${requirements.uppercase ? 'met' : ''}`}>
+                          <span className="req-icon">{requirements.uppercase ? '✓' : '○'}</span>
+                          <span className="req-text">Uppercase</span>
+                        </div>
+                        <div className={`requirement-item ${requirements.lowercase ? 'met' : ''}`}>
+                          <span className="req-icon">{requirements.lowercase ? '✓' : '○'}</span>
+                          <span className="req-text">Lowercase</span>
+                        </div>
+                        <div className={`requirement-item ${requirements.number ? 'met' : ''}`}>
+                          <span className="req-icon">{requirements.number ? '✓' : '○'}</span>
+                          <span className="req-text">Number</span>
+                        </div>
+                        <div className={`requirement-item ${requirements.special ? 'met' : ''}`}>
+                          <span className="req-icon">{requirements.special ? '✓' : '○'}</span>
+                          <span className="req-text">Special char</span>
+                        </div>
+                      </div>
                     </div>
                   )}
-                  
-                  <div className="requirements-grid">
-                    <div className={`requirement-item ${requirements.length ? 'met' : ''}`}>
-                      <span className="req-icon">{requirements.length ? '✓' : '○'}</span>
-                      <span className="req-text">8+ characters</span>
-                    </div>
-                    <div className={`requirement-item ${requirements.uppercase ? 'met' : ''}`}>
-                      <span className="req-icon">{requirements.uppercase ? '✓' : '○'}</span>
-                      <span className="req-text">Uppercase</span>
-                    </div>
-                    <div className={`requirement-item ${requirements.lowercase ? 'met' : ''}`}>
-                      <span className="req-icon">{requirements.lowercase ? '✓' : '○'}</span>
-                      <span className="req-text">Lowercase</span>
-                    </div>
-                    <div className={`requirement-item ${requirements.number ? 'met' : ''}`}>
-                      <span className="req-icon">{requirements.number ? '✓' : '○'}</span>
-                      <span className="req-text">Number</span>
-                    </div>
-                    <div className={`requirement-item ${requirements.special ? 'met' : ''}`}>
-                      <span className="req-icon">{requirements.special ? '✓' : '○'}</span>
-                      <span className="req-text">Special char</span>
-                    </div>
-                  </div>
                 </div>
               </div>
               
@@ -397,7 +366,7 @@ const Register = ({ api }) => {
                     name="confirmPassword"
                     type="password"
                     required
-                    className="register-input-glass"
+                    className="login-input-glass"
                     placeholder="Re-enter your password"
                     value={formData.confirmPassword}
                     onChange={handleChange}
@@ -418,7 +387,7 @@ const Register = ({ api }) => {
                 </div>
               </div>
               
-              <div className="terms-agreement-glass">
+              <div className="login-options">
                 <label className="checkbox-container">
                   <input type="checkbox" className="hidden-checkbox" required />
                   <div className="custom-checkbox">
@@ -435,7 +404,7 @@ const Register = ({ api }) => {
               <button
                 type="submit"
                 disabled={loading}
-                className="register-button-glass"
+                className="login-button-glass"
               >
                 {loading ? (
                   <>
@@ -446,40 +415,49 @@ const Register = ({ api }) => {
                   <>
                     <span className="button-icon">🚀</span>
                     <span className="button-text">Create Secure Account</span>
-                    <span className="button-arrow">→</span>
+                    <span className="button-arrow">›</span>
                   </>
                 )}
               </button>
               
-              <div className="alternative-options-glass">
-                <p className="login-prompt">
-                  Already have an account?
-                  <Link to="/login" className="login-link-glass">
+              <div className="alternative-auth-glass">
+                <div className="auth-divider">
+                  <span className="divider-line"></span>
+                  <span className="divider-text">or</span>
+                  <span className="divider-line"></span>
+                </div>
+                
+                <div className="register-prompt">
+                  <span className="prompt-text">Already have an account?</span>
+                  <Link to="/login" className="register-link-glass">
                     Sign In Here
                   </Link>
-                </p>
+                </div>
               </div>
             </form>
           </div>
           
-          <div className="form-footer-glass">
-            <div className="security-badges">
-              <div className="security-badge-item">
+          <div className="access-footer-glass">
+            <div className="compliance-badges">
+              <div className="compliance-badge">
                 <span className="badge-icon">🔒</span>
-                <span className="badge-text">SOC 2 Type II</span>
+                <span className="badge-text">AES-256 Encryption</span>
               </div>
-              <div className="security-badge-item">
+              <div className="compliance-badge">
                 <span className="badge-icon">🏛️</span>
                 <span className="badge-text">GDPR Compliant</span>
               </div>
-              <div className="security-badge-item">
+              <div className="compliance-badge">
                 <span className="badge-icon">⚡</span>
                 <span className="badge-text">ISO 27001</span>
               </div>
             </div>
-            <div className="version-info-glass">
-              <span className="version-label">Threat Intelligence Platform</span>
-              <span className="version-number">v2.5.1</span>
+            <div className="session-info">
+              <div className="session-status">
+                <div className="status-dot secure"></div>
+                <span className="status-text">Secure Connection</span>
+              </div>
+              <div className="session-timer">v2.5.1</div>
             </div>
           </div>
         </div>
