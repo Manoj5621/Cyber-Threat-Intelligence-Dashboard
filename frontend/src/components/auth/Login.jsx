@@ -180,7 +180,6 @@ const Login = ({ api }) => {
                     onChange={handleChange}
                     disabled={loading}
                   />
-                  <div className="input-underline"></div>
                 </div>
               </div>
               
@@ -201,7 +200,6 @@ const Login = ({ api }) => {
                     onChange={handleChange}
                     disabled={loading}
                   />
-                  <div className="input-underline"></div>
                 </div>
                 <div className="password-options">
                   <Link to="/forgot-password" className="forgot-link-glass">
@@ -247,17 +245,6 @@ const Login = ({ api }) => {
                   <span className="divider-text">or authenticate with</span>
                   <span className="divider-line"></span>
                 </div>
-                
-                <div className="auth-options">
-                  <button type="button" className="auth-option sso-option">
-                    <span className="auth-icon">🏢</span>
-                    <span className="auth-text">Enterprise SSO</span>
-                  </button>
-                  <button type="button" className="auth-option mfa-option">
-                    <span className="auth-icon">📱</span>
-                    <span className="auth-text">MFA Token</span>
-                  </button>
-                </div>
               </div>
               
               <div className="register-prompt">
@@ -268,26 +255,7 @@ const Login = ({ api }) => {
               </div>
             </form>
           </div>
-          
-          <div className="access-footer-glass">
-            <div className="compliance-badges">
-              <div className="compliance-badge">
-                <span className="badge-icon">🔒</span>
-                <span className="badge-text">AES-256 Encryption</span>
-              </div>
-              <div className="compliance-badge">
-                <span className="badge-icon">🏛️</span>
-                <span className="badge-text">GDPR Compliant</span>
-              </div>
-            </div>
-            <div className="session-info">
-              <div className="session-status">
-                <div className="status-dot secure"></div>
-                <span className="status-text">Secure Connection</span>
-              </div>
-              <div className="session-timer">Session: 30m</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

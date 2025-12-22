@@ -93,8 +93,7 @@ const Register = ({ api }) => {
     return 'Weak';
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     setLoading(true);
     setError('');
 
@@ -272,7 +271,6 @@ const Register = ({ api }) => {
                     onChange={handleChange}
                     disabled={loading}
                   />
-                  <div className="input-underline"></div>
                 </div>
               </div>
               
@@ -293,7 +291,6 @@ const Register = ({ api }) => {
                     onChange={handleChange}
                     disabled={loading}
                   />
-                  <div className="input-underline"></div>
                 </div>
               </div>
               
@@ -314,7 +311,6 @@ const Register = ({ api }) => {
                     onChange={handleChange}
                     disabled={loading}
                   />
-                  <div className="input-underline"></div>
                   
                   {formData.password && (
                     <div className="password-strength-glass">
@@ -378,7 +374,6 @@ const Register = ({ api }) => {
                     onChange={handleChange}
                     disabled={loading}
                   />
-                  <div className="input-underline"></div>
                   
                   {formData.confirmPassword && formData.password && (
                     <div className={`password-match ${formData.password === formData.confirmPassword ? 'match' : 'mismatch'}`}>
@@ -408,7 +403,8 @@ const Register = ({ api }) => {
               </div>
               
               <button
-                type="submit"
+                type="button"
+                onClick={handleSubmit}
                 disabled={loading}
                 className="login-button-glass"
               >
@@ -442,30 +438,7 @@ const Register = ({ api }) => {
               </div>
             </form>
           </div>
-          
-          <div className="access-footer-glass">
-            <div className="compliance-badges">
-              <div className="compliance-badge">
-                <span className="badge-icon">🔒</span>
-                <span className="badge-text">AES-256 Encryption</span>
-              </div>
-              <div className="compliance-badge">
-                <span className="badge-icon">🏛️</span>
-                <span className="badge-text">GDPR Compliant</span>
-              </div>
-              <div className="compliance-badge">
-                <span className="badge-icon">⚡</span>
-                <span className="badge-text">ISO 27001</span>
-              </div>
-            </div>
-            <div className="session-info">
-              <div className="session-status">
-                <div className="status-dot secure"></div>
-                <span className="status-text">Secure Connection</span>
-              </div>
-              <div className="session-timer">v2.5.1</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

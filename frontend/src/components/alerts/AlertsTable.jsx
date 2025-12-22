@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
-import './AlertsTable.css';
+
 
 const AlertsTable = ({ api }) => {
   const [alerts, setAlerts] = useState([]);
