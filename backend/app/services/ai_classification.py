@@ -17,7 +17,7 @@ class AIClassificationService:
 
     def __init__(self):
         self.models = {}
-        self.scaler = StandardScaler()
+        self.scalers = {}
         self.model_dir = os.getenv('MODEL_STORAGE_PATH', './models')
         os.makedirs(self.model_dir, exist_ok=True)
         self._load_models()
