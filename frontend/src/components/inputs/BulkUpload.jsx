@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ingestionApi } from '../../api/ingestionApi';
+import './BulkUpload.css';
 
 const BulkUpload = () => {
   const [file, setFile] = useState(null);
