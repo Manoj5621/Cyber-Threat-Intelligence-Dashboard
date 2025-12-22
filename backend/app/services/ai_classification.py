@@ -25,32 +25,52 @@ class AIClassificationService:
         # Random Forest
         rf_path = os.path.join(self.model_dir, 'random_forest.pkl')
         if os.path.exists(rf_path):
-            with open(rf_path, 'rb') as f:
-                self.models['random_forest'] = pickle.load(f)
+            try:
+                with open(rf_path, 'rb') as f:
+                    self.models['random_forest'] = pickle.load(f)
+                print(f"Successfully loaded random_forest model from {rf_path}")
+            except Exception as e:
+                print(f"Error loading random_forest model: {e}, using default")
+                self.models['random_forest'] = RandomForestClassifier(n_estimators=100, random_state=42)
         else:
             self.models['random_forest'] = RandomForestClassifier(n_estimators=100, random_state=42)
 
         # Logistic Regression
         lr_path = os.path.join(self.model_dir, 'logistic_regression.pkl')
         if os.path.exists(lr_path):
-            with open(lr_path, 'rb') as f:
-                self.models['logistic_regression'] = pickle.load(f)
+            try:
+                with open(lr_path, 'rb') as f:
+                    self.models['logistic_regression'] = pickle.load(f)
+                print(f"Successfully loaded logistic_regression model from {lr_path}")
+            except Exception as e:
+                print(f"Error loading logistic_regression model: {e}, using default")
+                self.models['logistic_regression'] = LogisticRegression(random_state=42)
         else:
             self.models['logistic_regression'] = LogisticRegression(random_state=42)
 
         # Isolation Forest for anomaly detection
         if_path = os.path.join(self.model_dir, 'isolation_forest.pkl')
         if os.path.exists(if_path):
-            with open(if_path, 'rb') as f:
-                self.models['isolation_forest'] = pickle.load(f)
+            try:
+                with open(if_path, 'rb') as f:
+                    self.models['isolation_forest'] = pickle.load(f)
+                print(f"Successfully loaded isolation_forest model from {if_path}")
+            except Exception as e:
+                print(f"Error loading isolation_forest model: {e}, using default")
+                self.models['isolation_forest'] = IsolationForest(random_state=42)
         else:
             self.models['isolation_forest'] = IsolationForest(random_state=42)
 
         # One-Class SVM
         svm_path = os.path.join(self.model_dir, 'one_class_svm.pkl')
         if os.path.exists(svm_path):
-            with open(svm_path, 'rb') as f:
-                self.models['one_class_svm'] = pickle.load(f)
+            try:
+                with open(svm_path, 'rb') as f:
+                    self.models['one_class_svm'] = pickle.load(f)
+                print(f"Successfully loaded one_class_svm model from {svm_path}")
+            except Exception as e:
+                print(f"Error loading one_class_svm model: {e}, using default")
+                self.models['one_class_svm'] = OneClassSVM(kernel='rbf', gamma='auto')
         else:
             self.models['one_class_svm'] = OneClassSVM(kernel='rbf', gamma='auto')
 
