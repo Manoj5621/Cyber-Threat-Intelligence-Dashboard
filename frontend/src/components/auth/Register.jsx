@@ -113,41 +113,47 @@ const Register = ({ api }) => {
 
     try {
       console.log('Registration attempt with:', formData);
-      
+
       if (formData.username && formData.email && formData.password) {
-        setTimeout(() => {
-          localStorage.setItem('token', 'mock-jwt-token');
-          localStorage.setItem('user', formData.username);
-          
-          // Show success animation
-          if (formRef.current) {
-            const successMsg = document.createElement('div');
-            successMsg.className = 'success-message';
-            successMsg.innerHTML = `
-              <span class="success-icon">🎉</span>
-              <span class="success-text">Account created successfully! Redirecting...</span>
-            `;
-            formRef.current.prepend(successMsg);
-            
+        const response = await api.post('/auth/register', {
+          username: formData.username,
+          email: formData.email,
+          password: formData.password
+        });
+
+        // Store the token and user info
+        localStorage.setItem('token', response.data.access_token);
+        localStorage.setItem('user', formData.username);
+
+        // Show success animation
+        if (formRef.current) {
+          const successMsg = document.createElement('div');
+          successMsg.className = 'success-message';
+          successMsg.innerHTML = `
+            <span class="success-icon">🎉</span>
+            <span class="success-text">Account created successfully! Redirecting...</span>
+          `;
+          formRef.current.prepend(successMsg);
+
+          setTimeout(() => {
+            successMsg.style.animation = 'fadeOutUp 0.5s ease forwards';
             setTimeout(() => {
-              successMsg.style.animation = 'fadeOutUp 0.5s ease forwards';
-              setTimeout(() => {
-                successMsg.remove();
-              }, 500);
-            }, 2000);
-            
-            formRef.current.style.transform = 'scale(0.95)';
-            formRef.current.style.opacity = '0.8';
-            
-            setTimeout(() => {
-              navigate('/dashboard');
-            }, 2500);
-          }
-        }, 1500);
+              successMsg.remove();
+            }, 500);
+          }, 2000);
+
+          formRef.current.style.transform = 'scale(0.95)';
+          formRef.current.style.opacity = '0.8';
+
+          setTimeout(() => {
+            navigate('/dashboard');
+          }, 2500);
+        }
       } else {
         throw new Error('Please fill all fields');
       }
     } catch (error) {
+      console.error('Registration error:', error);
       setError(error.response?.data?.detail || 'Registration failed');
       
       if (formRef.current) {

@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
+// API service
+import api from './services/api';
+
 // Components
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
@@ -53,8 +56,8 @@ function App() {
       <div className="App">
         <Routes>
           {/* Public routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login api={api} />} />
+          <Route path="/register" element={<Register api={api} />} />
           
           {/* Protected routes */}
           <Route

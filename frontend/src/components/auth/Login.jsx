@@ -55,27 +55,32 @@ const Login = ({ api }) => {
 
     try {
       console.log('Login attempt with:', formData);
-      
+
       if (formData.username && formData.password) {
-        setTimeout(() => {
-          localStorage.setItem('token', 'mock-jwt-token');
-          localStorage.setItem('user', formData.username);
-          
-          if (formRef.current) {
-            formRef.current.style.transform = 'scale(0.95)';
-            formRef.current.style.opacity = '0.8';
-            
-            setTimeout(() => {
-              navigate('/dashboard');
-            }, 300);
-          }
-        }, 1500);
+        const response = await api.post('/auth/login', {
+          username: formData.username,
+          password: formData.password
+        });
+
+        // Store the token and user info
+        localStorage.setItem('token', response.data.access_token);
+        localStorage.setItem('user', formData.username);
+
+        if (formRef.current) {
+          formRef.current.style.transform = 'scale(0.95)';
+          formRef.current.style.opacity = '0.8';
+
+          setTimeout(() => {
+            navigate('/dashboard');
+          }, 300);
+        }
       } else {
         throw new Error('Please enter credentials');
       }
     } catch (error) {
-      setError('Invalid username or password');
-      
+      console.error('Login error:', error);
+      setError(error.response?.data?.detail || 'Invalid username or password');
+
       if (formRef.current) {
         formRef.current.style.animation = 'shake 0.5s ease-in-out';
         setTimeout(() => {
