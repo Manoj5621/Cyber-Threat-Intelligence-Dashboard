@@ -51,7 +51,7 @@
 .glass-card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  color: #000000;
   margin: 0;
 }
 
@@ -59,7 +59,7 @@
 .glass-card-content {
   position: relative;
   z-index: 1;
-  color: rgba(255, 255, 255, 0.9);
+  color: #000000;
 }
 
 .text-center {
@@ -99,13 +99,13 @@
 .glass-metric-value {
   font-size: 2rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(7, 7, 7, 0.9);
   margin-bottom: 0.5rem;
 }
 
 .glass-metric-label {
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: #333333;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

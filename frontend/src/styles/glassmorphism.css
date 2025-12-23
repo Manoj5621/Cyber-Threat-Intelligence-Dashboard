@@ -57,7 +57,7 @@ Glass Effect Variables:
   --glass-shadow-warm: 0 20px 40px rgba(139, 69, 19, 0.1);
 
   /* Gradients */
-  --glass-gradient-bg: linear-gradient(135deg, var(--glass-color-beige) 0%, var(--glass-color-amber) 50%, var(--glass-color-gold) 100%);
+  --glass-gradient-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, #FFDAB9 50%, rgba(255, 255, 255, 0.7) 100%);
   --glass-gradient-vignette: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.05) 100%);
   --glass-gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
 
@@ -194,7 +194,7 @@ Glass Effect Variables:
   background: var(--glass-bg-light);
   border: 1px solid var(--glass-border-light);
   border-radius: var(--glass-radius-md);
-  color: var(--glass-color-white-muted);
+  color: #FF0000;
   text-decoration: none;
   transition: var(--glass-transition);
   position: relative;
@@ -204,12 +204,12 @@ Glass Effect Variables:
   transform: translateY(-2px);
   box-shadow: var(--glass-shadow-light);
   background: var(--glass-bg);
-  color: var(--glass-color-white);
+  color: #000000;
 }
 
 .glass-nav-item.active {
   background: var(--glass-bg-strong);
-  color: var(--glass-color-white);
+  color: #000000;
   box-shadow: var(--glass-shadow-light);
 }
 
@@ -273,13 +273,14 @@ Glass Effect Variables:
 .glass-card-title {
   font-size: var(--glass-font-size-medium);
   font-weight: 600;
-  color: var(--glass-color-white);
+  color: #000000;
   margin: 0;
 }
 
 .glass-card-content {
   position: relative;
   z-index: 1;
+  color: #000000;
 }
 
 /* Buttons */
@@ -370,10 +371,10 @@ Glass Effect Variables:
   background: var(--glass-bg-light);
   backdrop-filter: blur(var(--glass-blur-light));
   -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
+  border: black 1px solid var(--glass-border);
   border-radius: var(--glass-radius-md);
-  padding: var(--glass-spacing-sm) var(--glass-spacing-md);
-  color: var(--glass-color-white);
+  padding: 0.75rem 1rem;
+  color: black;
   font-size: var(--glass-font-size-small);
   transition: var(--glass-transition);
   width: 100%;
@@ -386,17 +387,17 @@ Glass Effect Variables:
 }
 
 .glass-input::placeholder {
-  color: var(--glass-color-white-secondary);
+  color: #000000;
 }
 
 .glass-select {
   background: var(--glass-bg-light);
   backdrop-filter: blur(var(--glass-blur-light));
   -webkit-backdrop-filter: blur(var(--glass-blur-light));
-  border: 1px solid var(--glass-border);
+  border: 1px solid #000000;
   border-radius: var(--glass-radius-md);
   padding: var(--glass-spacing-sm) var(--glass-spacing-md);
-  color: var(--glass-color-white);
+  color: #000000;
   font-size: var(--glass-font-size-small);
   transition: var(--glass-transition);
   width: 100%;
@@ -412,7 +413,7 @@ Glass Effect Variables:
   display: block;
   font-size: var(--glass-font-size-small);
   font-weight: 500;
-  color: var(--glass-color-white-muted);
+  color: black;
   margin-bottom: var(--glass-spacing-xs);
 }
 
@@ -435,13 +436,13 @@ Glass Effect Variables:
 .glass-metric-value {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--glass-color-white);
+  color: #000000;
   margin-bottom: var(--glass-spacing-xs);
 }
 
 .glass-metric-label {
   font-size: var(--glass-font-size-xs);
-  color: var(--glass-color-white-secondary);
+  color: #333333;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
