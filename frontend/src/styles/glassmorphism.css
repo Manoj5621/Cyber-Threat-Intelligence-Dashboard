@@ -194,7 +194,7 @@ Glass Effect Variables:
   background: var(--glass-bg-light);
   border: 1px solid var(--glass-border-light);
   border-radius: var(--glass-radius-md);
-  color: #FF0000;
+  color: #c691ff;
   text-decoration: none;
   transition: var(--glass-transition);
   position: relative;

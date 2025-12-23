@@ -181,7 +181,7 @@
 }
 
 .text-red-300 {
-  color: #fca5a5;
+  color: black;
 }
 
 .bg-yellow-500\/20 {
@@ -189,7 +189,7 @@
 }
 
 .text-yellow-300 {
-  color: #fde047;
+  color: #32cd32;
 }
 
 .bg-green-500\/20 {
@@ -197,7 +197,7 @@
 }
 
 .text-green-300 {
-  color: #86efac;
+  color: #00008b;
 }
 
 .bg-gray-500\/20 {
@@ -205,7 +205,7 @@
 }
 
 .text-gray-300 {
-  color: #d1d5db;
+  color: black;
 }
 
 .opacity-70 {

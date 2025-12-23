@@ -4,7 +4,7 @@
 .glass-content {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: 1fr;
   gap: 1.5rem;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .text-red-300 {
-  color: #fca5a5;
+  color: black;
 }
 
 .opacity-70 {
@@ -181,7 +181,7 @@
 }
 
 .text-green-300 {
-  color: #fc0303;
+  color: #00008b;
 }
 
 .bg-red-500\/20 {
@@ -189,7 +189,7 @@
 }
 
 .text-red-300 {
-  color: #fca5a5;
+  color: black;
 }
 
 /* Flex utilities */
@@ -305,8 +305,8 @@
   left: 0;
 }
 
-.bg-black\/50 {
-  background-color: rgba(0, 0, 0, 0.5);
+.modal-overlay {
+  background: linear-gradient(135deg, rgba(255, 165, 0, 0.3), rgba(255, 255, 255, 0.7));
 }
 
 .z-50 {
