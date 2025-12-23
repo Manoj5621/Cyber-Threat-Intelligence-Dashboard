@@ -120,7 +120,7 @@
   color: rgba(10, 0, 0, 0.9);
   font-size: 0.875rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  width: 100%;
+  width: 92%;
 }
 
 .glass-input:focus {
@@ -159,7 +159,7 @@
 }
 
 .text-green-300 {
-  color: #86efac;
+  color: #101111;
 }
 
 /* Buttons */
@@ -206,7 +206,7 @@
 
 .glass-button.primary {
   border-color: rgba(59, 130, 246, 0.3);
-  color: #93c5fd;
+  color: black;
 }
 
 .glass-button.primary:hover {
@@ -242,6 +242,7 @@
 pre {
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
   margin: 0;
+  color: black;
 }
 
 .overflow-x-auto {

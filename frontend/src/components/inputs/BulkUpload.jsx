@@ -133,7 +133,7 @@ const BulkUpload = () => {
           <div className="space-y-2 text-sm opacity-70">
             <div>
               <strong>CSV Format:</strong>
-              <pre className="glass-card p-2 mt-1 text-xs overflow-x-auto">
+              <pre className="glass-card p-2 mt-1 text-xs">
 {`type,value
 ip,192.168.1.1
 domain,malicious.com
@@ -142,7 +142,7 @@ url,https://bad.example.com`}
             </div>
             <div>
               <strong>JSON Format:</strong>
-              <pre className="glass-card p-2 mt-1 text-xs overflow-x-auto">
+              <pre className="glass-card p-2 mt-1 text-xs">
 {`[
   {"type": "ip", "value": "192.168.1.1"},
   {"type": "domain", "value": "malicious.com"},

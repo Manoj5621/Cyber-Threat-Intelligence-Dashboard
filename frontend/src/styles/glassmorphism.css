@@ -327,7 +327,7 @@ Glass Effect Variables:
 
 .glass-button.primary {
   border-color: rgba(59, 130, 246, 0.3);
-  color: #93c5fd;
+  color: black;
 }
 
 .glass-button.primary:hover {
@@ -347,7 +347,7 @@ Glass Effect Variables:
 
 .glass-button.secondary {
   border-color: var(--glass-border-light);
-  color: var(--glass-color-white-muted);
+  color: black;
 }
 
 .glass-button.secondary:hover {
@@ -377,7 +377,7 @@ Glass Effect Variables:
   color: black;
   font-size: var(--glass-font-size-small);
   transition: var(--glass-transition);
-  width: 100%;
+  width: 92%;
 }
 
 .glass-input:focus {
@@ -472,7 +472,7 @@ Glass Effect Variables:
 
 .glass-table th {
   font-weight: 600;
-  color: var(--glass-color-white-muted);
+  color: var(--glass-color-black-muted);
   text-transform: uppercase;
   font-size: var(--glass-font-size-xs);
   letter-spacing: 0.05em;

@@ -141,7 +141,7 @@ li {
   padding-left: 1rem;
 }
 
-li::before {
+/* li::before {
   content: '';
   position: absolute;
   left: 0;
@@ -150,7 +150,7 @@ li::before {
   height: 0.5rem;
   border-radius: 50%;
   background: rgba(255, 191, 0, 0.3);
-}
+} */
 
 /* Focus styles for accessibility */
 .glass-card:focus-within {
