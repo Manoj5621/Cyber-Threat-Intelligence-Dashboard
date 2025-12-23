@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './Header.css';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -17,19 +18,8 @@ const Header = () => {
         </Link>
       </h1>
       <nav className="glass-nav-actions">
-        <Link to="/dashboard" className="glass-button secondary">
-          Dashboard
-        </Link>
-        <Link to="/iocs" className="glass-button secondary">
-          IOCs
-        </Link>
-        <Link to="/alerts" className="glass-button secondary">
-          Alerts
-        </Link>
-        <Link to="/reports" className="glass-button secondary">
-          Reports
-        </Link>
         <button onClick={handleLogout} className="glass-button danger">
+          <img src="/design/check-out.png" alt="Logout" style={{ width: '20px', height: '20px', marginRight: '8px' }} />
           Logout
         </button>
       </nav>

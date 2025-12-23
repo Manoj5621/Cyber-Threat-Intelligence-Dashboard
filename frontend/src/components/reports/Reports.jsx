@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
+import './Reports.css';
 
 const Reports = () => {
   const [reportConfig, setReportConfig] = useState({

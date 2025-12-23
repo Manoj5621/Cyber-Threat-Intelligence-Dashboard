@@ -1,4 +1,5 @@
 import React from 'react';
+import './GeoMap.css';
 
 const GeoMap = () => {
   return (

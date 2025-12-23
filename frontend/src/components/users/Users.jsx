@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Users.css';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -185,7 +186,7 @@ const Users = () => {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 modal-overlay flex items-center justify-center z-50">
           <div className="glass-card max-w-md w-full mx-4">
             <div className="glass-card-header">
               <h3 className="glass-card-title">

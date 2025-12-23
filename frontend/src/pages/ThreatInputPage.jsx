@@ -1,6 +1,7 @@
 import React from 'react';
 import ThreatInputForm from '../components/inputs/ThreatInputForm';
 import BulkUpload from '../components/inputs/BulkUpload';
+import './ThreatInputPage.css';
 
 const ThreatInputPage = () => {
   return (
