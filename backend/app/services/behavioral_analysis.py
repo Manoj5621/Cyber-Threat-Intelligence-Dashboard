@@ -126,7 +126,7 @@ class BehavioralAnalysisService:
             feature_matrix = []
             for ioc in iocs:
                 features_vec = [
-                    {'ip': 0, 'domain': 1, 'url': 2, 'hash': 3}.get(ioc.type, 0),
+                    {'ip': 0, 'domain': 1, 'url': 2, 'hash': 3, 'network': 4}.get(ioc.type, 0),
                     len(ioc.value),
                     float(ioc.risk_score) if ioc.risk_score else 0.0,
                     len(ioc.enrichments) if ioc.enrichments else 0,
