@@ -304,3 +304,8 @@
 .glass-card:focus-within {
   box-shadow: 0 0 0 2px #ffbf00;
 }
+
+.previous-button, 
+.next-button {
+  margin-top: 20px;
+}
