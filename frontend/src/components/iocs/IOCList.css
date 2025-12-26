@@ -280,6 +280,16 @@
   box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
 }
 
+.glass-button.danger {
+  border-color: rgba(239, 68, 68, 0.3);
+  color: black;
+}
+
+.glass-button.danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.2);
+}
+
 .glass-button.text-xs {
   font-size: 0.75rem;
 }

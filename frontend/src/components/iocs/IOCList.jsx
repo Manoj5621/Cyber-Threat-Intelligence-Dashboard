@@ -38,6 +38,19 @@ const IOCList = () => {
     }
   };
 
+  const handleDelete = async (iocId) => {
+    if (window.confirm('Are you sure you want to delete this IOC?')) {
+      try {
+        await api.delete(`/iocs/${iocId}`);
+        // Refresh the list after deletion
+        fetchIOCs();
+      } catch (error) {
+        console.error('Error deleting IOC:', error);
+        alert('Failed to delete IOC. Please try again.');
+      }
+    }
+  };
+
   const handleRowClick = (ioc) => {
     setSelectedIoc(ioc);
     setShowModal(true);
@@ -136,6 +149,12 @@ const IOCList = () => {
                           Enrich
                         </button>
                       )}
+                      <button
+                        onClick={(e) => { e.stopPropagation(); handleDelete(ioc.id); }}
+                        className="glass-button danger text-xs px-2 py-1"
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 ))}
