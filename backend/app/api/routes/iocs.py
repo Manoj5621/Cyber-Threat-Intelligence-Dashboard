@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List, Dict, Any
 from ...db.session import get_db
 from ...models.models import ThreatIOC, IOCEnrichment
 from ...schemas.schemas import IOC as IOCSchema, IOCCreate, IOCEnrichment as IOCEnrichmentSchema
@@ -101,3 +101,26 @@ async def delete_ioc(
     db.commit()
     
     return {"message": "IOC deleted"}
+
+@router.get("/map", response_model=List[Dict[str, Any]])
+async def get_map_iocs(db: Session = Depends(get_db), current_user = Depends(get_current_active_user)):
+    enrichments = db.query(IOCEnrichment).filter(IOCEnrichment.enrichment_type == "geolocation").all()
+    map_data = []
+    for enrichment in enrichments:
+        ioc = enrichment.ioc
+        geo_data = enrichment.data
+        if isinstance(geo_data, dict):
+            lat = geo_data.get("lat")
+            lon = geo_data.get("lon")
+            if lat is not None and lon is not None:
+                map_data.append({
+                    "id": ioc.id,
+                    "type": ioc.type,
+                    "value": ioc.value,
+                    "risk_score": float(ioc.risk_score),
+                    "lat": lat,
+                    "lon": lon,
+                    "country": geo_data.get("country"),
+                    "city": geo_data.get("city")
+                })
+    return map_data
