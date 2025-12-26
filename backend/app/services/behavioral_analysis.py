@@ -139,7 +139,7 @@ class BehavioralAnalysisService:
 
             # K-Means clustering
             n_clusters = min(5, len(iocs) // 2)
-            kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+            kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
             clusters = kmeans.fit_predict(X_scaled)
 
             # Analyze clusters
