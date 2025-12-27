@@ -54,7 +54,6 @@ const Login = ({ api }) => {
     setError('');
 
     try {
-      console.log('Login attempt with:', formData);
 
       if (formData.username && formData.password) {
         const response = await api.post('/auth/login', {
@@ -78,7 +77,6 @@ const Login = ({ api }) => {
         throw new Error('Please enter credentials');
       }
     } catch (error) {
-      console.error('Login error:', error);
       setError(error.response?.data?.detail || 'Invalid username or password');
 
       if (formRef.current) {

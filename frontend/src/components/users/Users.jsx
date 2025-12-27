@@ -32,7 +32,7 @@ const Users = () => {
       });
       setRoles(response.data);
     } catch (err) {
-      console.error('Failed to fetch roles', err);
+      // Failed to fetch roles
     }
   };
 
@@ -44,7 +44,6 @@ const Users = () => {
       setUsers(response.data);
     } catch (err) {
       setError('Failed to fetch users');
-      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -70,7 +69,6 @@ const Users = () => {
       fetchUsers();
     } catch (err) {
       setError('Failed to save user');
-      console.error(err);
     }
   };
 
@@ -89,7 +87,6 @@ const Users = () => {
       setUserToDelete(null);
     } catch (err) {
       setError('Failed to delete user');
-      console.error(err);
       setShowDeleteModal(false);
       setUserToDelete(null);
     }
@@ -195,8 +192,8 @@ const Users = () => {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 modal-overlay flex items-center justify-center z-50">
-          <div className="glass-card max-w-md w-full mx-4">
+        <div className="fixed inset-0 modal-overlay flex items-center justify-center z-50" onClick={() => setShowModal(false)}>
+          <div className="glass-card max-w-md w-full mx-4" onClick={(e) => e.stopPropagation()}>
             <div className="glass-card-header">
               <h3 className="glass-card-title">
                 {editingUser ? 'Edit User' : 'Add User'}
