@@ -44,10 +44,16 @@ const Dashboard = () => {
               <div className="glass-metric-value">{metrics?.total_iocs || 0}</div>
               <div className="glass-metric-label">Total IOCs</div>
             </Link>
-            <Link to="/iocs" className="glass-metric-item">
-              <div className="glass-metric-value">{metrics?.high_risk_iocs || 0}</div>
-              <div className="glass-metric-label">High Risk IOCs</div>
+            
+            {/* Single Risk Button */}
+            <Link to="/risk" className="glass-metric-item border-l-4 border-red-500">
+              <div className="glass-metric-value text-red-400">
+                {(metrics?.critical_risk_iocs || 0) + (metrics?.high_risk_iocs || 0)}
+              </div>
+              <div className="glass-metric-label">Total Risks</div>
+              <div className="text-xs opacity-70">Critical + High Risk</div>
             </Link>
+            
             <Link to="/alerts" className="glass-metric-item">
               <div className="glass-metric-value">{metrics?.active_alerts || 0}</div>
               <div className="glass-metric-label">Active Alerts</div>
