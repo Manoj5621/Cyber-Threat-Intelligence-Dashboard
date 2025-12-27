@@ -88,7 +88,6 @@ const IOCIntelligence = () => {
       }
     } catch (err) {
       setAiError('Failed to run AI analysis. Please try again.');
-      console.error('AI analysis error:', err);
       setAiPredictions([]);
     } finally {
       setAiLoading(false);
@@ -102,7 +101,7 @@ const IOCIntelligence = () => {
       setShowDeleteModal(false);
       setDeleteAllStep(0);
     } catch (err) {
-      console.error('Failed to delete analysis');
+      // Failed to delete analysis
     }
   };
 
@@ -113,7 +112,7 @@ const IOCIntelligence = () => {
       setShowSingleDeleteModal(false);
       setPredictionToDelete(null);
     } catch (err) {
-      console.error('Failed to delete prediction');
+      // Failed to delete prediction
     }
   };
   
