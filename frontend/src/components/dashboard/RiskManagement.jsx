@@ -74,7 +74,7 @@ const RiskManagement = () => {
       <div className="glass-card">
         <div className="glass-card-content">
           <div className="risk-summary-grid">
-            <div className="risk-summary-item border-l-4 border-red-500">
+            <div className="risk-summary-item border-l-4">
               <div className="risk-summary-value text-red-400">
                 {riskData?.summary?.critical || 0}
               </div>
@@ -82,7 +82,7 @@ const RiskManagement = () => {
               <div className="risk-summary-sublabel">Risk Score ≥ 0.9</div>
             </div>
             
-            <div className="risk-summary-item border-l-4 border-orange-500">
+            <div className="risk-summary-item border-l-4">
               <div className="risk-summary-value text-orange-400">
                 {riskData?.summary?.high || 0}
               </div>
@@ -90,7 +90,7 @@ const RiskManagement = () => {
               <div className="risk-summary-sublabel">Risk Score 0.7-0.9</div>
             </div>
             
-            <div className="risk-summary-item border-l-4 border-yellow-500">
+            <div className="risk-summary-item border-l-4">
               <div className="risk-summary-value text-yellow-400">
                 {riskData?.summary?.medium || 0}
               </div>
@@ -98,7 +98,7 @@ const RiskManagement = () => {
               <div className="risk-summary-sublabel">Risk Score 0.4-0.7</div>
             </div>
             
-            <div className="risk-summary-item border-l-4 border-green-500">
+            <div className="risk-summary-item border-l-4">
               <div className="risk-summary-value text-green-400">
                 {riskData?.summary?.low || 0}
               </div>
