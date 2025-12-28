@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../../services/api';
 import './Users.css';
 
 const Users = () => {
@@ -18,8 +18,6 @@ const Users = () => {
     role_id: 1
   });
 
-  const token = localStorage.getItem('token');
-
   useEffect(() => {
     fetchUsers();
     fetchRoles();
@@ -27,9 +25,7 @@ const Users = () => {
 
   const fetchRoles = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/users/roles', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get('/users/roles');
       setRoles(response.data);
     } catch (err) {
       // Failed to fetch roles
@@ -38,9 +34,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/users/', {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      const response = await api.get('/users/');
       setUsers(response.data);
     } catch (err) {
       setError('Failed to fetch users');
@@ -54,14 +48,10 @@ const Users = () => {
     try {
       if (editingUser) {
         // Update user - assuming we have update endpoint
-        await axios.put(`http://localhost:8000/api/users/${editingUser.id}`, formData, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        await api.put(`/users/${editingUser.id}`, formData);
       } else {
         // Create user
-        await axios.post('http://localhost:8000/api/users/', formData, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        await api.post('/users/', formData);
       }
       setShowModal(false);
       setEditingUser(null);
@@ -79,9 +69,7 @@ const Users = () => {
 
   const confirmDelete = async () => {
     try {
-      await axios.delete(`http://localhost:8000/api/users/${userToDelete}`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
+      await api.delete(`/users/${userToDelete}`);
       fetchUsers();
       setShowDeleteModal(false);
       setUserToDelete(null);

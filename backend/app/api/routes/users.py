@@ -126,9 +126,19 @@ async def delete_user(
     if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
 
-    db.delete(db_user)
-    db.commit()
-    return {"message": "User deleted"}
+    try:
+        # Delete the user - cascading deletes will handle dependent records
+        db.delete(db_user)
+        db.commit()
+        
+        return {"message": "User deleted successfully"}
+        
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Failed to delete user: {str(e)}"
+        )
 
 @router.get("/{user_id}", response_model=UserSchema)
 async def get_user(
