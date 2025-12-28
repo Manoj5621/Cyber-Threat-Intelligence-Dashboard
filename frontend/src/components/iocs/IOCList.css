@@ -132,6 +132,15 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+.glass-table th:nth-child(2),
+.glass-table td:nth-child(2) {
+  max-width: 220px;        /* reduce Value column width */
+  width: 220px;            /* fixed width */
+  white-space: normal;     /* allow text to go to next line */
+  word-break: break-word;  /* break long URLs/strings */
+  overflow-wrap: break-word;
+}
+
 .glass-table th {
   font-weight: 600;
   color: rgba(8, 8, 8, 0.7);
