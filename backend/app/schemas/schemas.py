@@ -64,6 +64,9 @@ class IOCEnrichment(BaseModel):
     enrichment_type: str
     data: Dict[str, Any]
 
+    class Config:
+        from_attributes = True
+
 class IOC(IOCBase):
     id: int
     first_seen: Optional[datetime] = None
