@@ -20,7 +20,10 @@ class Settings(BaseSettings):
     mysql_user: str = "cti_user"
     mysql_password: str = "cti_password"
     mysql_database: str = "cti_dashboard"
-    
+
+    # SSL CA for MySQL
+    MYSQL_SSL_CA: Optional[str] = "ca.pem"
+
     # Optional Caching
     redis_host: Optional[str] = "localhost"
     redis_port: Optional[int] = 6379

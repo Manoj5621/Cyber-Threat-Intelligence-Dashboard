@@ -4,3 +4,4 @@ venv/
 *.pyc
 build/
 venv10/
+ca.pem

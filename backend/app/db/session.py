@@ -14,10 +14,14 @@ DATABASE_URL = (
 engine = create_engine(
     DATABASE_URL,
     pool_pre_ping=True,
-    future=True
+    future=True,
+    connect_args={
+        "ssl": {
+            "ca": settings.MYSQL_SSL_CA
+        }
+    }
 )
 
-# Session factory (IMPORTANT FIX)
 SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
